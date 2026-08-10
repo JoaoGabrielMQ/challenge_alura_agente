@@ -18,7 +18,7 @@ class AgentePesquisa:
                     Use ferramentas para consultar:
                     - fazer_buscar: Use essa ferramente para fazer as buscas.
                     
-                    Se não conseguir uma resposta com fazer_buscar SEMPRE retorne 'Não encontrei a resposta.'
+                    Se não conseguir uma resposta com fazer_buscar SEMPRE retorne 'Não tenho essa resposta na minha base de dados.'
                     
                     Responda SEMPRE em português brasileiro com base no que a ferramenta retornar."""
         self.agente = create_agent(model=self.llm, tools=self.tools, system_prompt=self.system_prompt,

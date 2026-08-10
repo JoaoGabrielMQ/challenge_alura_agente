@@ -8,11 +8,9 @@ def main():
 
     while True:
         pergunta_usuario = input("\nVocê: ")
-
         if pergunta_usuario.strip().lower() == "sair":
             print("Encerrando o chat... Até logo!")
             break
-
         if not pergunta_usuario.strip():
             continue
 
