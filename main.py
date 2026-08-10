@@ -1,9 +1,10 @@
 from agente import AgentePesquisa
+import uuid
 
 
 def main():
     agente = AgentePesquisa()
-    id_conversa = "conversa_local"
+    id_conversa = str(uuid.uuid4())
 
     while True:
         pergunta_usuario = input("\nVocê: ")
@@ -12,7 +13,6 @@ def main():
             print("Encerrando o chat... Até logo!")
             break
 
-        # Evita enviar perguntas vazias
         if not pergunta_usuario.strip():
             continue
 
