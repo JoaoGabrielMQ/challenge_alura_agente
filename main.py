@@ -13,6 +13,9 @@ def main():
             break
         if not pergunta_usuario.strip():
             continue
+        if pergunta_usuario.strip().lower() == "limpar":
+            print("Encerrando o chat... Até logo!")
+            break
 
         resposta = agente.funcao_agente(pergunta_usuario, id_conversa)
 

@@ -17,8 +17,8 @@ def criar_base_vetorial():
 
     paginas_originais = loader.load()
 
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=600,
-                                                   chunk_overlap=100)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1500,
+                                                   chunk_overlap=200)
 
     meus_documentos = text_splitter.split_documents(paginas_originais)
 
@@ -29,7 +29,7 @@ def criar_base_vetorial():
     modelo_embedding = HuggingFaceEmbeddings(model_name="google/embeddinggemma-300m",
                                              encode_kwargs={"prompt": "query: "})
 
-    vector_store = InMemoryVectorStore.from_documents(documents=meus_documentos, embedding=modelo_embedding)
+    vector_store = InMemoryVectorStore.from_documents(documents=meus_documentos, embedding=modelo_embedding, k=2)
     retriever = vector_store.as_retriever()
 
     return retriever
