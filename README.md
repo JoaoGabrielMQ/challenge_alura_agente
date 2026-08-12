@@ -4,6 +4,22 @@ Agente de inteligência artificial que responde perguntas sobre documentos técn
 
 ---
 
+## Deploy
+
+A aplicação está disponível no **Streamlit Community Cloud**:
+
+**https://santo-pegasus.streamlit.app/**
+
+---
+
+## Comprovação de funcionamento
+
+Video da aplicação em funcionamento está disponível em:
+
+**https://drive.google.com/file/d/1Lrv-p7COovUi8djfuz3rrxu5o3YUH0x1/view?usp=sharing**
+
+---
+
 ## Arquitetura da Solução
 
 O projeto segue um padrão **RAG (Retrieval-Augmented Generation)**: os documentos são convertidos em vetores e armazenados em memória; quando o usuário faz uma pergunta, o agente recupera os trechos mais relevantes e usa um LLM para formular a resposta.
@@ -56,8 +72,9 @@ AgentePesquisa  ←─── Memória de conversa (InMemorySaver / thread_id)
 
 ### Pré-requisitos
 
-- Python 3.11+
+- Python 3.14
 - Chave de API do Google Gemini
+- Chave de API do HuggingFace
 
 ### 1. Criar e ativar o ambiente virtual
 
@@ -74,7 +91,7 @@ source .venv/bin/activate
 ### 2. Instalar as dependências
 
 ```bash
-pip install -r requiremets.txt
+pip install -r requirements.txt
 ```
 
 ### 3. Configurar a variável de ambiente
@@ -83,6 +100,7 @@ Crie um arquivo `.env` na raiz do projeto:
 
 ```
 GEMINI_API_KEY=sua_chave_aqui
+HF_TOKEN=sua_chave_aqui
 ```
 
 ### 4. Adicionar os documentos
@@ -102,6 +120,8 @@ Acesse `http://localhost:8501` no navegador.
 python main.py
 ```
 Digite `sair` para encerrar o chat.
+
+Digite `limpar` para começar um novo chat.
 
 > **Atenção:** a base vetorial é criada na memória a cada inicialização, então o tempo de arranque depende do tamanho dos documentos e do download do modelo de embeddings na primeira execução.
 
